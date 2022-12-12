@@ -21,12 +21,13 @@ public class Leadstepdefination extends Basaestepdefination  {
 	@Before
 	public void before(Scenario scenario) {
 		this.scenario=scenario;
+		 TCName=scenario.getName();
 	}
 	@After
 	public void after()
 	{
 		extent.flush();
-		driver.quit();
+		//driver.quit();
 		
 	}
 	

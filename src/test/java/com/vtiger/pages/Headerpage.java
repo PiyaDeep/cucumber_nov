@@ -30,6 +30,8 @@ public class Headerpage {
 	   
 	   @FindBy(linkText="Accounts")
 	   WebElement lnk_Accounts;
+	   @FindBy(linkText="New Account")
+	   WebElement lnk_nAccounts;
 	   @FindBy(linkText="Contacts")
 	   WebElement lnk_Contacts;
 	   @FindBy(linkText="Potentials")
@@ -44,6 +46,13 @@ public class Headerpage {
 		  
 		 
 	   }
+	   public void clickNewAccount()
+	   {
+			cr.ClickElement(lnk_nAccounts,"NewLead  link clicked successfully");
+		  
+		 
+	   }
+	   
 	   public void clickAccount()
 	   {
 			cr.ClickElement(lnk_Accounts,"Account  link clicked successfully");

@@ -31,7 +31,7 @@ public class Loginstepdefinations extends Basaestepdefination  {
 	public void after()
 	{
 		extent.flush();
-		driver.quit();
+		//driver.quit();
 		
 	}
 	@Given("user should be on login page")

@@ -19,6 +19,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.vtiger.pages.Accountpage;
 import com.vtiger.pages.Homepage;
 import com.vtiger.pages.Leadpage;
 import com.vtiger.pages.Loginpage;
@@ -39,19 +40,35 @@ public class Basaestepdefination {
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public static ExtentTest logger;
-	public Scenario scenario;
+	public  Scenario scenario;
 	public static String TCName;
 	public static Loginpage lp;
 	public static Homepage hp;
 	public static Leadpage lpp;
+	public static Accountpage ac;
 
 	public void init()
 	{
 		
 		prop=readProperties();
-		createReport();
-		launchApp();
-		TestData = readExcelData(System.getProperty("user.dir")+"/src/test/resources/TestData/Data.xlsx","Sheet1");
+		if(extent==null)
+		{
+			createReport();
+			if(prop.getProperty("TestingType").equals("API"))
+            {
+    		TestData = readExcelData(System.getProperty("user.dir")+"/src/test/resources/TestData/API11.xlsx","Sheet1");
+
+                 }
+            else if(prop.getProperty("TestingType").equals("WEB"))
+            {
+               launchApp();
+        		TestData = readExcelData(System.getProperty("user.dir")+"/src/test/resources/TestData/b.xlsx","Sheet1");
+	
+                  }
+		}
+		
+		//launchApp();
+		//TestData = readExcelData(System.getProperty("user.dir")+"/src/test/resources/TestData/d.xlsx","Sheet1");
 		
 	}
 	

@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Iterator;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -46,6 +47,28 @@ public class commonfuction {
 	
 		}
 	}
+	public void Getwindowhandle(WebElement elm,String details)
+	{
+		try {
+			//wait.until(ExpectedConditions.visibilityOf(elm));
+
+			java.util.Set<String> set=driver.getWindowHandles();
+			Iterator<String> iter=set.iterator();
+			String parentwindow=iter.next();
+			String childwindow=iter.next();
+			driver.switchTo().window(childwindow);
+			elm.click();
+			driver.switchTo().window(parentwindow);
+			logger.pass(details);
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.fail(e.getMessage()+"<span class='label end-time'><a href='"+getscreenshot()+"'>Screenshot</a></span>");
+
+		}
+		
+	}
 	
 	public void SelectDropdownValue(WebElement elm,String value,String details)
 	{
@@ -83,7 +106,9 @@ public class commonfuction {
 	
 	public void IsElementDisplay(WebElement elm,String details)
 	{
+		
 		try {
+			
 			wait.until(ExpectedConditions.visibilityOf(elm));
 			elm.isDisplayed();
 			logger.pass(details);
@@ -97,6 +122,7 @@ public class commonfuction {
 			logger.fail(e.getMessage()+"<span class='label end-time'><a href='"+getscreenshot()+"'>Screenshot</a></span>");
 
 		}
+		elm.isDisplayed();
 	}
 		public String getscreenshot() 
 		{

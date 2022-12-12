@@ -18,4 +18,3 @@ Scenario: T02_validlogin
 When user entersvalid userid and password and click on login button
 Then user can navigated to homepage
 And logout link should be appear on right corner on the home page
-

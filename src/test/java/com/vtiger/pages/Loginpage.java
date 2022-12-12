@@ -31,7 +31,7 @@ public class Loginpage {
    @FindBy(name="Login")
    WebElement btn_userlogin;
   // @FindBy(xpath="//*[contains(text(),'You must specify a valid username and password')]")
-	@FindBy(xpath="//*[contains(text(),'You must specify a valid username and password.')]")
+	@FindBy(xpath="//*[contains(text(),'123You must specify a valid username and password.')]")
 
    WebElement txterrmsg;
    public void verifyErrorMsg()
